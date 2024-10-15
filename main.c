@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+
 /*
 In this programm there will be a user input of any number and its number system (bin, hex, dec)
 The user choses a number system and it will be converted into the chosen system
@@ -25,10 +27,17 @@ The user choses a number system and it will be converted into the chosen system
     return (*binary_str == '\0') ? "0" : binary_str;
 }
 
-//function decimal to binary
+//function binary to decimal
 int binary_to_decimal(const char *binary) {
-    printf("%s", binary);
-    return 6;
+    int decimal_result = 0;
+    unsigned long length = strlen(binary);
+    int bit = (binary[length - 1]) - '0';
+    for (unsigned long i = 1; i <= length; i++) {
+        bit = (binary[length - i] - '0');
+        decimal_result = decimal_result + (bit * (int)pow(2, (i - 1)));
+
+    }
+    return decimal_result;
 }
 
 
@@ -90,7 +99,7 @@ int main(void)
         printf("%s\n", binary_result);
     } else if (type_i == 'b' && type_o == 'd') {
         int decimal_result = binary_to_decimal(input_binary);
-        printf("Decimal result: %d\n", decimal_result);
+        printf("\n\nDecimal result: %d\n", decimal_result);
     }
 
     return 0;
