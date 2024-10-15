@@ -26,7 +26,7 @@ The user choses a number system and it will be converted into the chosen system
 }
 
 //function decimal to binary
-int binary_to_decimal(char *binary) {
+int binary_to_decimal(const char *binary) {
     printf("%s", binary);
     return 6;
 }
@@ -37,7 +37,7 @@ int main(void)
 {
     char type_i, type_o;
     int input_decimal;
-    char input_binary[33], input_hex[33];
+    char input_binary[33];
 
     //loop until valid input is put in
     for(int i = 0; i != 1;)
@@ -64,7 +64,6 @@ int main(void)
     } else if (type_i == 'b') {
         printf("Input your binary number:\n");
         scanf("%s", input_binary);
-        input_binary[strlen(input_binary)] = '\0';
     }
 
     // Convert input string to integer
@@ -90,8 +89,8 @@ int main(void)
         char *binary_result = decimal_to_binary(input_decimal);
         printf("%s\n", binary_result);
     } else if (type_i == 'b' && type_o == 'd') {
-        int decimal_result = binary_to_decimal(*input_binary);
-        printf("%d\n", decimal_result);
+        int decimal_result = binary_to_decimal(input_binary);
+        printf("Decimal result: %d\n", decimal_result);
     }
 
     return 0;

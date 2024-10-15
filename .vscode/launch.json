@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "2.0.0",
   "configurations": [
     {
       "name": "C/C++ Runner: Debug Session",
@@ -8,6 +8,25 @@
       "args": [],
       "cwd": "/Users/arnoherzogenrath/Documents/Projects/Number-System-Converter",
       "program": "/Users/arnoherzogenrath/Documents/Projects/Number-System-Converter/build/Debug/outDebug"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "-g",
+        "-O0",
+        "-o",
+        "main",
+        "main.c"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
     }
   ]
 }
